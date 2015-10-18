@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :posts
-
-  get 'about' => 'welcome#about'
+  resources :advertisements
   
+  get 'about' => 'welcome#about'
   root to: 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  #   get 'products/:id/purchase' => 'catalog#purcharakese', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

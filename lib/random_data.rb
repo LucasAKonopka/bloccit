@@ -24,4 +24,8 @@ module RandomData
     letters.shuffle!
     letters[0,rand(3..8)].join
   end
+  
+  def random_int
+    rand(1..500)
+  end
 end
