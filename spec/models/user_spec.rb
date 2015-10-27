@@ -45,4 +45,13 @@ RSpec.describe User, type: :model do
       expect(user_with_invalid_email_format).to_not be_valid
     end
   end
+  
+  describe "user name format" do
+    
+    it "should properly format user_bad_name" do
+      user.name = "lucas konopka"
+      user.save
+      expect(user.name).to eq("Lucas Konopka")
+    end
+  end
 end
