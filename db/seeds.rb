@@ -36,6 +36,10 @@ posts = Post.all
   )
 end
 
+topics.each do |t|
+  t.rating = Rating.find_or_create_by(severity: "PG")
+end
+
 admin = User.create!(
   name: 'Admin user',
   email: 'admin@example.com',
