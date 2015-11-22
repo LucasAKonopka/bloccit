@@ -4,11 +4,10 @@ RSpec.describe User, type: :model do
   let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "password") }
   it { should have_many(:posts) }
   it { should have_many(:comments) }
-  #Shoulda tests for name
+  it { should have_many(:votes) }
+  
   it { should validate_presence_of(:name) }
   it { should validate_length_of(:name).is_at_least(1) }
-  
-  #Shoulda tests for email
   it { should validate_presence_of(:email) }
   it { should validate_uniqueness_of(:email) }
   it { should validate_length_of(:email).is_at_least(3) }

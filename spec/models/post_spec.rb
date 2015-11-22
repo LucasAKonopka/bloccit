@@ -8,6 +8,7 @@ RSpec.describe Post, type: :model do
   it { should have_many(:labelings) }
   it { should have_many(:labels).through(:labelings) }
   it { should have_many(:comments) }
+  it { should have_many(:votes) }
   it { should belong_to(:topic) }
   it { should belong_to(:user) }
   it { should validate_presence_of(:title) }
@@ -15,6 +16,7 @@ RSpec.describe Post, type: :model do
   it { should validate_presence_of(:topic) }
   it { should validate_length_of(:title).is_at_least(5) }
   it { should validate_length_of(:body).is_at_least(20) }
+  
   
   describe "attributes" do
     it "should respond to title" do
