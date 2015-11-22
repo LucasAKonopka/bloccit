@@ -22,6 +22,7 @@
      <div class="form-group">
          <%= render partial: 'labels/form', locals: { f: f, labels: @topic.labels } %>
      </div>
+     <%= render partial: 'ratings/form', locals: {f: f, rating: @topic.rating } %>
      <div class="form-group">
        <%= f.label :public, class: 'checkbox' do %>
          <%= f.check_box :public %> Public topic

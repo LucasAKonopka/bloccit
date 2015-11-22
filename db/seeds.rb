@@ -37,7 +37,7 @@ posts = Post.all
 end
 
 topics.each do |t|
-  t.rating = Rating.find_or_create_by(severity: "PG")
+  t.rating = Rating.update_rating("PG")
 end
 
 admin = User.create!(
