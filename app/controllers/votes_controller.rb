@@ -11,8 +11,9 @@ class VotesController < ApplicationController
    redirect_to :back
   end
   
-    private  
-   def update_vote(new_value)
+  private  
+  
+  def update_vote(new_value)
      @post = Post.find(params[:post_id])
      @vote = @post.votes.where(user_id: current_user.id).first
  
@@ -21,7 +22,7 @@ class VotesController < ApplicationController
      else
        @vote = current_user.votes.create(value: new_value, post: @post)
      end
-   end
+  end
   
   
 end

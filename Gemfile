@@ -34,3 +34,7 @@ gem 'turbolinks'
 gem 'bootstrap-sass'
 #USed for encrypting user passwords
 gem 'bcrypt'
+
+gem 'better_errors'
+
+gem 'binding_of_caller'

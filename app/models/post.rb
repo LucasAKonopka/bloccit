@@ -6,6 +6,8 @@ class Post < ActiveRecord::Base
   has_many :labels, through: :labelings
   has_many :votes, dependent: :destroy
   has_one :rating, as: :rateable
+  after_create :create_vote
+  
   
   
   default_scope { order('rank DESC') }
@@ -35,7 +37,7 @@ class Post < ActiveRecord::Base
   private
   
   def create_vote
-    self.user.votes.create!(value: 1)
+    user.votes.create(value: 1, post: self)
   end
   
 end
