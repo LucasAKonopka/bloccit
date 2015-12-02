@@ -9,7 +9,6 @@ class Vote < ActiveRecord::Base
   private
   
   def update_post
-    raise
     post.update_rank
   end
 end
