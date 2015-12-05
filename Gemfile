@@ -38,3 +38,5 @@ gem 'bcrypt'
 gem 'better_errors'
 
 gem 'binding_of_caller'
+
+gem 'figaro', '1.0'
