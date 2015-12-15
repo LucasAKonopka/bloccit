@@ -19,8 +19,38 @@
  </div>
 </div>
 
-<h2>Posts</h2>
-<%= render @user.posts %>
+<% if no_posts? %>
+ <h2><%="#{@user.name} has not submitted any posts"%></h2>
+<% else %>
+  <h2>Posts</h2>
+  <%= render @user.posts %>
+<% end %>
 
-<h2>Comments</h2>
-<%= render @user.comments %>
+<% if no_comments? %>
+ <h2><%="#{@user.name} has not submitted any comments"%></h2>
+<% else %>
+  <h2>Comments</h2>
+  <%= render @user.comments %>
+<% end %>
+
+<h2>Favorites</h2>
+<ul>
+<div class="row" >
+ <div class="media">
+   <% @user.favorites.each do |f| %>
+   <div class="col-md-8">
+      <div class="media-left pull-left">
+          <%= image_tag f.post.user.avatar_url(32) %>
+      </div>
+       <div class="media-left pull-left">
+        <%= render partial: 'votes/voter', locals: { post: f.post } %>  
+      </div>
+      <h4><%=link_to f.post.title, topic_post_path(f.post.topic, f.post) %></h4>
+      
+     <small>
+      <%= "#{f.post.comments.count} Comments" %>
+     </small>
+   </div>
+   <% end %> 
+  </div>
+</div>
