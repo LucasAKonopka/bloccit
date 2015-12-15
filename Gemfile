@@ -40,3 +40,5 @@ gem 'better_errors'
 gem 'binding_of_caller'
 
 gem 'figaro', '1.0'
+
+gem 'factory_girl_rails', '~> 4.0'
