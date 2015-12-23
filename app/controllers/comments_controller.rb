@@ -8,26 +8,35 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     comment = @post.comments.new(comment_params)
     comment.user = current_user
+    @comment = @post.comments.new(comment_params)
+    @comment.user = current_user
+    @new_comment = Comment.new
     
-    if comment.save
+    if @comment.save
       flash[:notice] = "comment saved successfully"
-      redirect_to [@post.topic, @post]
     else
       flash[:error] = "Comment failed to save"
-      redirect_to [@post.topic,@post]
+    end
+    
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
   
   def destroy
     @post = Post.find(params[:post_id])
-    comment = @post.comments.find(params[:id])
+    @comment = @post.comments.find(params[:id])
     
-    if comment.destroy
+    if @comment.destroy
       flash[:notice] = "comment was deleted."
-      redirect_to [@post.topic, @post]
     else 
-      flash[:error] = "comment couldn't be deleted try again"
-      redirect_to [@post.topic, @post]
+      flash[:alert] = "comment couldn't be deleted try again"
+    end
+    
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
   
