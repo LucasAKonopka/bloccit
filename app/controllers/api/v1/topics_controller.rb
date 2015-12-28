@@ -9,6 +9,6 @@
  
    def show
      topic = Topic.find(params[:id])
-     render json: topic.to_json, status: 200
+     render json: topic.to_json(include: :posts), status: 200
    end
  end
