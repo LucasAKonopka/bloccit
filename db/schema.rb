@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 201511200442412) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "role"
+    t.string   "auth_token"
   end
 
   create_table "votes", force: :cascade do |t|
